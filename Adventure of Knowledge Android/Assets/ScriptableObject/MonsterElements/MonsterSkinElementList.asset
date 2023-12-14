@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947988783f2b21940b6f9d520da9c03a, type: 3}
+  m_Name: MonsterSkinElementList
+  m_EditorClassIdentifier: 
+  monsterSkinElements:
+  - {fileID: 11400000, guid: 2fa0727de396f0d44aca2395c8182aab, type: 2}
+  - {fileID: 11400000, guid: 6b7ebce50e6a7a148a862e5d9760948a, type: 2}
+  - {fileID: 11400000, guid: bd040030994568c4ba75638de1998a16, type: 2}
+  - {fileID: 11400000, guid: a70fb1538d2806741bff3b149e773097, type: 2}
+  - {fileID: 11400000, guid: fd4fa69a5ab4d01478571a12ed41da0d, type: 2}
+  - {fileID: 11400000, guid: 9918f859d02ca1b4b8be10780fe427e9, type: 2}
+  - {fileID: 11400000, guid: 0616ad0cbf9be0e4e8ff6533ef614583, type: 2}

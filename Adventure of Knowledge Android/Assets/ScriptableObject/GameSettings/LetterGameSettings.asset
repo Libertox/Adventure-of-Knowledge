@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f746326a9c4a747b5a356c5c5c0a55, type: 3}
+  m_Name: LetterGameSettings
+  m_EditorClassIdentifier: 
+  difficultyLevelSettingsList:
+  - level: 0
+    PointLossTime: 20
+    PointLossMove: 9
+    MaxPointToEarn: 30
+    MinPointToEarn: 10
+    word:
+    - Dog
+    - Cat
+    - House
+    - Tree
+    - Sun
+    - Book
+    - Clock
+    - Car
+    - Color
+    - Moon
+    - Hand
+    - Leg
+    - Head
+    - Apple
+    - Please
+    - Grandma
+    - Grandpa
+    - Mom
+    - Dad
+    - Friend
+    - Fish
+    - Ship
+    - Plane
+    - Hat
+    - Flower
+    - Heart
+    - Rain
+    - Orange
+    - Bear
+    - Balloon
+    - Pen
+    - King
+    - Bread
+    - Milk
+    - Coffee
+    - Soup
+    - Castle
+    - Bike
+    - Car
+    - Pencil
+    - Desk
+    - Table
+    - Airport
+    - Food
+    - Ice cream
+    - Lamp
+    - Day
+    - Night
+    - Smile
+    - School
+    MissingLetterNumber: 1
+    AnswerAmount: 3
+    MaxStage: 7
+  - level: 1
+    PointLossTime: 80
+    PointLossMove: 36
+    MaxPointToEarn: 60
+    MinPointToEarn: 15
+    word:
+    - Dog
+    - Cat
+    - House
+    - Tree
+    - Sun
+    - Book
+    - Clock
+    - Car
+    - Color
+    - Moon
+    - Hand
+    - Leg
+    - Head
+    - Apple
+    - Please
+    - Grandma
+    - Grandpa
+    - Mom
+    - Dad
+    - Friend
+    - Fish
+    - Ship
+    - Plane
+    - Hat
+    - Flower
+    - Heart
+    - Rain
+    - Orange
+    - Bear
+    - Balloon
+    - Pen
+    - King
+    - Bread
+    - Milk
+    - Coffee
+    - Soup
+    - Castle
+    - Bike
+    - Car
+    - Pencil
+    - Desk
+    - Table
+    - Airport
+    - Food
+    - Ice cream
+    - Lamp
+    - Day
+    - Night
+    - Smile
+    - School
+    MissingLetterNumber: 2
+    AnswerAmount: 4
+    MaxStage: 12
+  - level: 2
+    PointLossTime: 140
+    PointLossMove: 64
+    MaxPointToEarn: 100
+    MinPointToEarn: 20
+    word:
+    - Bear
+    - umbrella
+    - Elephant
+    - Mountain
+    - Butterfly
+    - Princess
+    - Teacher
+    - Student
+    - Beach
+    - Compass
+    - Grandma
+    - Grandpa
+    - Friend
+    - Orange
+    - School
+    - River
+    - Pillow
+    - Cheese
+    - Flower
+    - Clothes
+    - Sunny
+    - Bedroom
+    - Window
+    - monkey
+    - Vegetable
+    - Breakfast
+    - Garden
+    - Train
+    - Pencil
+    - Rainbow
+    - Morning
+    - Picture
+    - Bread
+    - Library
+    - Coffee
+    - Giraffe
+    - Castle
+    - Tiger
+    - House
+    - Brown
+    - Yellow
+    - Classroom
+    - Airport
+    - Computer
+    - Ice cream
+    - Picture
+    - Calendar
+    - Doctor
+    - Holiday
+    - Kitchen
+    MissingLetterNumber: 3
+    AnswerAmount: 6
+    MaxStage: 18

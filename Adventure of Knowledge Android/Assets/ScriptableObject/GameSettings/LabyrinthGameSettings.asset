@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792a87b20e28e1247979b982b280b8a9, type: 3}
+  m_Name: LabyrinthGameSettings
+  m_EditorClassIdentifier: 
+  difficultyLevelSettingsList:
+  - level: 0
+    PointLossTime: 12
+    PointLossMove: 8
+    MaxPointToEarn: 30
+    MinPointToEarn: 10
+    Width: 5
+    Height: 4
+    startPipeTile: {fileID: 6276745445957396245, guid: ac43469f0bd792e4dbf713417464cb24,
+      type: 3}
+    endPipeTile: {fileID: 6276745445957396245, guid: ee8b2575c8e4ade499402efda581caba,
+      type: 3}
+    pipePrefabList:
+    - {fileID: 6276745445957396245, guid: 0221d046d66d0ee4c82919d8fc608d73, type: 3}
+    - {fileID: 6276745445957396245, guid: de205c9fd125ee247b810d21bae568d2, type: 3}
+  - level: 1
+    PointLossTime: 20
+    PointLossMove: 16
+    MaxPointToEarn: 50
+    MinPointToEarn: 15
+    Width: 8
+    Height: 4
+    startPipeTile: {fileID: 6276745445957396245, guid: ac43469f0bd792e4dbf713417464cb24,
+      type: 3}
+    endPipeTile: {fileID: 6276745445957396245, guid: ee8b2575c8e4ade499402efda581caba,
+      type: 3}
+    pipePrefabList:
+    - {fileID: 6276745445957396245, guid: 0221d046d66d0ee4c82919d8fc608d73, type: 3}
+    - {fileID: 6276745445957396245, guid: de205c9fd125ee247b810d21bae568d2, type: 3}
+    - {fileID: 6276745445957396245, guid: 93b05b15a6c968a458ffb075be7d7083, type: 3}
+  - level: 2
+    PointLossTime: 30
+    PointLossMove: 25
+    MaxPointToEarn: 80
+    MinPointToEarn: 20
+    Width: 12
+    Height: 4
+    startPipeTile: {fileID: 6276745445957396245, guid: ac43469f0bd792e4dbf713417464cb24,
+      type: 3}
+    endPipeTile: {fileID: 6276745445957396245, guid: ee8b2575c8e4ade499402efda581caba,
+      type: 3}
+    pipePrefabList:
+    - {fileID: 6276745445957396245, guid: 0221d046d66d0ee4c82919d8fc608d73, type: 3}
+    - {fileID: 6276745445957396245, guid: de205c9fd125ee247b810d21bae568d2, type: 3}

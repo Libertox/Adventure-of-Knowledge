@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc5940dc06335c4591d60377b340add, type: 3}
+  m_Name: Eye
+  m_EditorClassIdentifier: 
+  monsterSkinElementList:
+  - price: 1
+    skinElement: {fileID: 21300000, guid: 087103ca8615f7c48960910047fe8d04, type: 3}
+    colorVariants: []
+  - price: 700
+    skinElement: {fileID: 21300000, guid: f82d9b7d00633a64eafe8c83e4eb5a94, type: 3}
+    colorVariants: []
+  - price: 800
+    skinElement: {fileID: 21300000, guid: 61fce7330311c9a488323ba593dac64b, type: 3}
+    colorVariants: []
+  - price: 900
+    skinElement: {fileID: 21300000, guid: 8b3cd1193ae5a7749b0f5d1d864fff5f, type: 3}
+    colorVariants: []
+  - price: 400
+    skinElement: {fileID: 21300000, guid: be614ae4319fafa4da5d4f98d1a09590, type: 3}
+    colorVariants: []
+  - price: 300
+    skinElement: {fileID: 21300000, guid: ae61e87323de8f24fa64f77d8a55ec89, type: 3}
+    colorVariants: []
+  - price: 600
+    skinElement: {fileID: 21300000, guid: fa13255c9874a774c82ccf27f10bb4b1, type: 3}
+    colorVariants: []
+  - price: 800
+    skinElement: {fileID: 21300000, guid: 7cffab3221f0cb2448b7525148d54b45, type: 3}
+    colorVariants: []
+  - price: 1000
+    skinElement: {fileID: 21300000, guid: d507d8797eeaea24e805e6ebc1430ed4, type: 3}
+    colorVariants: []
+  - price: 1200
+    skinElement: {fileID: 21300000, guid: 991ffc80b3694d2469789c689f067315, type: 3}
+    colorVariants: []
+  - price: 800
+    skinElement: {fileID: 21300000, guid: 3ea5d6af60d5c554b9305be935177077, type: 3}
+    colorVariants: []
+  - price: 600
+    skinElement: {fileID: 21300000, guid: 5775c67a249b7714b936237df7a11666, type: 3}
+    colorVariants: []
+  - price: 1500
+    skinElement: {fileID: 21300000, guid: 4d299072bcff71a4abd7859a18468d0b, type: 3}
+    colorVariants: []
+  - price: 1800
+    skinElement: {fileID: 21300000, guid: 16cba8c80afa9d54d8e4e9864c1079f1, type: 3}
+    colorVariants: []
+  <BodyPart>k__BackingField: 5
+  <LayerLevel>k__BackingField: 3

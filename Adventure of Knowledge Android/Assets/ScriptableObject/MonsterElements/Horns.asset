@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc5940dc06335c4591d60377b340add, type: 3}
+  m_Name: Horns
+  m_EditorClassIdentifier: 
+  monsterSkinElementList:
+  - price: 1000
+    skinElement: {fileID: 21300000, guid: 8372559aca87b2044ba1b967a2dfc311, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 8372559aca87b2044ba1b967a2dfc311, type: 3}
+    - {fileID: 21300000, guid: 80efae6287bd6b64997687cbdae8f315, type: 3}
+    - {fileID: 21300000, guid: add44fa12f0a1154b9d80fb843602a5c, type: 3}
+    - {fileID: 21300000, guid: 9c7baa6c1645e1b44b322a13475b0806, type: 3}
+    - {fileID: 21300000, guid: 62895f335bc45d34f8d582c84fb46a28, type: 3}
+    - {fileID: 21300000, guid: 609fa96754300f44280125ebd7b5ee77, type: 3}
+  - price: 800
+    skinElement: {fileID: 21300000, guid: 225b22f03610c664292b5cd7c49beb8e, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 225b22f03610c664292b5cd7c49beb8e, type: 3}
+    - {fileID: 21300000, guid: 88c6f94cb00b6204a8a84615205b10dc, type: 3}
+    - {fileID: 21300000, guid: 400af4f0fcf4e36469abd5b98cfe9fe9, type: 3}
+    - {fileID: 21300000, guid: 581d1a1e202e9a64eaa0795299eb602e, type: 3}
+    - {fileID: 21300000, guid: 6189ec673410f9749ae9538a451299c3, type: 3}
+    - {fileID: 21300000, guid: 0d6efe47c60e63a47aa2069b6e90a16e, type: 3}
+  - price: 600
+    skinElement: {fileID: 21300000, guid: 135e1fedb6f5e9a41b20ac5de4e574ec, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 135e1fedb6f5e9a41b20ac5de4e574ec, type: 3}
+    - {fileID: 21300000, guid: 996e7349d4f4dfd44ab68550fc7911dc, type: 3}
+    - {fileID: 21300000, guid: 1f6eff850d11f88468ed498c11b909a4, type: 3}
+    - {fileID: 21300000, guid: 7e530c96ebcdef241937520bffa142ca, type: 3}
+    - {fileID: 21300000, guid: f234670f154856845a82e77eaf64271e, type: 3}
+    - {fileID: 21300000, guid: c6373286056a6f14fb42a614620a6897, type: 3}
+  - price: 800
+    skinElement: {fileID: 21300000, guid: 832d8489b5c284b44a5f2a327314bc0c, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 832d8489b5c284b44a5f2a327314bc0c, type: 3}
+    - {fileID: 21300000, guid: f142d161ec76a1840b26cb1847a2291c, type: 3}
+    - {fileID: 21300000, guid: 2530cda599d777f4b93ed7fe0a7c5dd7, type: 3}
+    - {fileID: 21300000, guid: fca4599b55297a647a6be788d33b6251, type: 3}
+    - {fileID: 21300000, guid: 32ac0454d78d7cc409c89d674293317c, type: 3}
+    - {fileID: 21300000, guid: c1276cb0587cffd43842e73f45173303, type: 3}
+  - price: 400
+    skinElement: {fileID: 21300000, guid: ff498e4e7d725614f89ddc1b289ed086, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: ff498e4e7d725614f89ddc1b289ed086, type: 3}
+    - {fileID: 21300000, guid: 5b9e5f12f80341f4984b4a2c4cd15543, type: 3}
+    - {fileID: 21300000, guid: 255f30d98393bf145b048c030bb34e08, type: 3}
+    - {fileID: 21300000, guid: bdf83cf24b60848428e095877b8e7642, type: 3}
+    - {fileID: 21300000, guid: 76720bae238a0c5459e396f0c0ee7120, type: 3}
+    - {fileID: 21300000, guid: d95876f6a207d894d946846e605c88d0, type: 3}
+  - price: 1600
+    skinElement: {fileID: 21300000, guid: 3abba01e80b7bda4babc22375609d800, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 3abba01e80b7bda4babc22375609d800, type: 3}
+    - {fileID: 21300000, guid: 5b4426614d4876a46bbebd950792a5bf, type: 3}
+    - {fileID: 21300000, guid: fe85dce474506f943b641a33cee5fc86, type: 3}
+    - {fileID: 21300000, guid: 8edf62645925162499b894c5d79394a4, type: 3}
+    - {fileID: 21300000, guid: 2cb20be5111aa5646955a5d84254754d, type: 3}
+    - {fileID: 21300000, guid: 5a1dfb16bf0baef4ba92b410673a2052, type: 3}
+  - price: 1200
+    skinElement: {fileID: 21300000, guid: 347c307d2ca1cc948a125f42c09f45dd, type: 3}
+    colorVariants:
+    - {fileID: 21300000, guid: 347c307d2ca1cc948a125f42c09f45dd, type: 3}
+    - {fileID: 21300000, guid: 31fa9ec355f4bff459ee28c264079a2a, type: 3}
+    - {fileID: 21300000, guid: 47dbab27b56d7f94a94a33fa4b110f80, type: 3}
+    - {fileID: 21300000, guid: 391d34dd8ba36224d87490454163f787, type: 3}
+    - {fileID: 21300000, guid: 7b9929d75d436eb49bcfd8f48f48b76c, type: 3}
+    - {fileID: 21300000, guid: f8f50d425ab74484a810e549cdfda006, type: 3}
+  <BodyPart>k__BackingField: 4
+  <LayerLevel>k__BackingField: 2

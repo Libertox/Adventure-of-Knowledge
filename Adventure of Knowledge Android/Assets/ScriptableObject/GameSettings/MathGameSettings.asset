@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc65d865ef0e334683db38d8c108479, type: 3}
+  m_Name: MathGameSettings
+  m_EditorClassIdentifier: 
+  difficultyLevelSettingsList:
+  - level: 0
+    PointLossTime: 24
+    PointLossMove: 9
+    MaxPointToEarn: 20
+    MinPointToEarn: 10
+    arithmeticOperator:
+    - numberRange: 10
+      arithmeticOperator: +
+    - numberRange: 10
+      arithmeticOperator: '-'
+    maxArithmeticExpression: 7
+  - level: 1
+    PointLossTime: 60
+    PointLossMove: 28
+    MaxPointToEarn: 50
+    MinPointToEarn: 15
+    arithmeticOperator:
+    - numberRange: 50
+      arithmeticOperator: +
+    - numberRange: 50
+      arithmeticOperator: '-'
+    - numberRange: 5
+      arithmeticOperator: '*'
+    maxArithmeticExpression: 12
+  - level: 2
+    PointLossTime: 60
+    PointLossMove: 44
+    MaxPointToEarn: 80
+    MinPointToEarn: 20
+    arithmeticOperator:
+    - numberRange: 50
+      arithmeticOperator: +
+    - numberRange: 50
+      arithmeticOperator: '-'
+    - numberRange: 10
+      arithmeticOperator: '*'
+    - numberRange: 100
+      arithmeticOperator: /
+    maxArithmeticExpression: 18

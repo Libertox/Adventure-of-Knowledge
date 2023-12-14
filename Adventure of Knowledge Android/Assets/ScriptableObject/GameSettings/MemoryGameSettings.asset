@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c4e7cba7e68a14fa3684b90184a438, type: 3}
+  m_Name: MemoryGameSettings
+  m_EditorClassIdentifier: 
+  difficultyLevelSettingsList:
+  - level: 0
+    PointLossTime: 60
+    PointLossMove: 16
+    MaxPointToEarn: 50
+    MinPointToEarn: 10
+    FieldDimension: 4
+  - level: 1
+    PointLossTime: 120
+    PointLossMove: 36
+    MaxPointToEarn: 80
+    MinPointToEarn: 15
+    FieldDimension: 6
+  - level: 2
+    PointLossTime: 240
+    PointLossMove: 64
+    MaxPointToEarn: 120
+    MinPointToEarn: 20
+    FieldDimension: 10
+  <FieldRow>k__BackingField: 4
