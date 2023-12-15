@@ -15,9 +15,29 @@ namespace AdventureOfKnowledge
         private const string PLAYER_PREFS_NAME = "PlayerName";
         private const string PLAYER_PREFS_BEST_SCORE = "BestScore";
         private const string PLAYER_PREFS_DIAMOND_AMOUNT = "DiamondAmount";
+
         private const string PLAYER_PREFS_SPIN_DATA_YEAR = "SpinDataYear";
         private const string PLAYER_PREFS_SPIN_DATA_MONTH = "SpinDataMonth";
         private const string PLAYER_PREFS_SPIN_DATA_DAY = "SpinDataDay";
+
+        private const string PLAYER_PREFS_RENEW_SPIN_DATA_DAY = "RenewSpinDataDay";
+        private const string PLAYER_PREFS_RENEW_SPIN_DATA_MONTH = "RenewSpinDataMonth";
+        private const string PLAYER_PREFS_RENEW_SPIN_DATA_YEAR = "RenewSpinDataYear";
+
+
+        public static void SaveRenewSpinDataDay(int day) => PlayerPrefs.SetInt(PLAYER_PREFS_RENEW_SPIN_DATA_DAY, day);
+
+        public static int LoadRenewSpinDataDay() => PlayerPrefs.GetInt(PLAYER_PREFS_RENEW_SPIN_DATA_DAY);
+
+        public static void SaveRenewSpinDataMonth(int month) => PlayerPrefs.SetInt(PLAYER_PREFS_RENEW_SPIN_DATA_MONTH, month);
+
+        public static int LoadRenewSpinDataMonth() => PlayerPrefs.GetInt(PLAYER_PREFS_RENEW_SPIN_DATA_MONTH);
+
+        public static void SaveRenewSpinDataYear(int year) => PlayerPrefs.SetInt(PLAYER_PREFS_RENEW_SPIN_DATA_YEAR, year);
+
+        public static int LoadRenewSpinDataYear() => PlayerPrefs.GetInt(PLAYER_PREFS_RENEW_SPIN_DATA_YEAR);
+
+
 
         public static void SaveSpinDataDay(int day) => PlayerPrefs.SetInt(PLAYER_PREFS_SPIN_DATA_DAY, day);
 
@@ -30,6 +50,13 @@ namespace AdventureOfKnowledge
         public static void SaveSpinDataYear(int year) => PlayerPrefs.SetInt(PLAYER_PREFS_SPIN_DATA_YEAR, year);
 
         public static int LoadSpinDataYear() => PlayerPrefs.GetInt(PLAYER_PREFS_SPIN_DATA_YEAR);
+
+        public static void ResetSpinTime()
+        {
+            PlayerPrefs.DeleteKey(PLAYER_PREFS_SPIN_DATA_DAY);
+            PlayerPrefs.DeleteKey(PLAYER_PREFS_SPIN_DATA_MONTH);
+            PlayerPrefs.DeleteKey(PLAYER_PREFS_SPIN_DATA_YEAR);
+        }
 
         public static string LoadPlayerName() => PlayerPrefs.GetString(PLAYER_PREFS_NAME);
 

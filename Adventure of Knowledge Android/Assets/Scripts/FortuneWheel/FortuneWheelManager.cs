@@ -20,9 +20,18 @@ namespace AdventureOfKnowledge.FortuneWheel
 
         private void Awake() => Instance = this;
 
-        private void Start() => playerDiamond = new PlayerDiamond(SaveSystem.LoadDiamondAmount());
-       
-       
+        private void Start() 
+        {
+            playerDiamond = new PlayerDiamond(SaveSystem.LoadDiamondAmount());
+            AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
+        }
+
+        private void AdsManager_OnRewarded(object sender, EventArgs e)
+        {
+            SaveRenewSpinTime();
+            SaveSystem.ResetSpinTime();
+        }
+
         public void SetAward(int awardIndex)
         {
             awardAmount = GetFortuneWheelElementForIndex(awardIndex).AwardValue;
@@ -33,6 +42,14 @@ namespace AdventureOfKnowledge.FortuneWheel
 
             OnAwardWon?.Invoke(this,new OnAwardWonEventArgs { awardAmount = awardAmount });
         }
+
+        public void SaveRenewSpinTime()
+        {
+            SaveSystem.SaveRenewSpinDataYear(DateTime.Now.Year);
+            SaveSystem.SaveRenewSpinDataMonth(DateTime.Now.Month);
+            SaveSystem.SaveRenewSpinDataDay(DateTime.Now.Day);
+        }
+
         public int GetNumberOfWheelElement() => fortuneWheelElements.Count;
 
         public FortuneWheelElement GetFortuneWheelElementForIndex(int index) => fortuneWheelElements[index];

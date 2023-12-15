@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Bootstrap.unity
+    guid: 9db797da336472f47b2e42be9c97c912
+  - enabled: 1
+    path: Assets/Scenes/FortuneWheel.unity
+    guid: 287cecd3fb251ca4a9411abefe7b890e
+  - enabled: 1
+    path: Assets/Scenes/LabyrinthGame.unity
+    guid: 1fcaccef263e67e4c9aedb4a316d51a6
+  - enabled: 1
+    path: Assets/Scenes/LetterGame.unity
+    guid: 5d4d5fb10179c1444a50787fd7a7f780
+  - enabled: 1
+    path: Assets/Scenes/LevelChoiceMenu.unity
+    guid: 3746c0fdcfbda1b4ca51238ed0702c1b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5abbda21b6eac384e9c1dee379bbe881
+  - enabled: 1
+    path: Assets/Scenes/MathGame.unity
+    guid: 35d17daa2885e224e8449e5533458b3d
+  - enabled: 1
+    path: Assets/Scenes/MemoryGame.unity
+    guid: a77677dcde36cad4dab2cd4b04c50116
+  - enabled: 1
+    path: Assets/Scenes/MonsterCreator.unity
+    guid: c02db717ef9fb2d4eb358ffc5e3750f6
   m_configObjects: {}

@@ -31,6 +31,7 @@ namespace AdventureOfKnowledge.FortuneWheel
         private void Start()
         {
             FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
+            AdsManager.Instance.OnRewardedAdsShow += AdsManager_OnRewardedAdsShow;
 
             int year = SaveSystem.LoadSpinDataYear();
             int month = SaveSystem.LoadSpinDataMonth();
@@ -44,6 +45,11 @@ namespace AdventureOfKnowledge.FortuneWheel
             });
             gameObject.SetActive(!canSpined);
   
+        }
+
+        private void AdsManager_OnRewardedAdsShow(object sender, EventArgs e)
+        {
+            gameObject.SetActive(false);
         }
 
         private void FortuneWheelManager_OnAwardWon(object sender, FortuneWheelManager.OnAwardWonEventArgs e)

@@ -23,7 +23,7 @@ namespace AdventureOfKnowledge.FortuneWheel
         [SerializeField] private RectTransform fortuneElementContainer;
 
         [SerializeField] private Button spinButton;
-
+ 
         private bool isSpin;
 
         private void Awake()
@@ -38,11 +38,22 @@ namespace AdventureOfKnowledge.FortuneWheel
                     isSpin = true;
                     StartCoroutine(SpinCorotuine());
                 } 
-            });      
+            });
+          
         }
 
-        private void Start() => CreateFortuneWheel(); 
-       
+        private void Start() 
+        {
+            CreateFortuneWheel();
+            AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
+        }
+
+        private void AdsManager_OnRewarded(object sender, System.EventArgs e)
+        {
+            spinButton.gameObject.SetActive(true);
+            isSpin = false;
+        }
+
         private void SpinTimer_OnCanSpined(object sender, SpinTimer.OnCanSpinedEventArgs e)
         {
             spinButton.gameObject.SetActive(e.canSpined);

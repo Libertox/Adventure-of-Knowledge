@@ -18,8 +18,17 @@ namespace AdventureOfKnowledge.FortuneWheel
             SpinTimer.OnCanSpined += SpinTimer_OnCanSpined;
         }
 
-        private void Start() => FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
-       
+        private void Start() 
+        {
+            FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
+            AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
+        }
+
+        private void AdsManager_OnRewarded(object sender, System.EventArgs e)
+        {
+            Hide();
+        }
+
         private void SpinTimer_OnCanSpined(object sender, SpinTimer.OnCanSpinedEventArgs e)
         {
             gameObject.SetActive(!e.canSpined);
@@ -54,6 +63,8 @@ namespace AdventureOfKnowledge.FortuneWheel
         }
 
         private void Show() => gameObject.SetActive(true);
+
+        private void Hide() => gameObject.SetActive(false);
 
         private void OnDestroy()
         {
