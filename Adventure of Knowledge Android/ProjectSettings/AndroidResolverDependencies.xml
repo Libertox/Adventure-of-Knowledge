@@ -1,15 +1,30 @@
 <dependencies>
   <packages>
     <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
+    <package>com.google.android.gms:play-services-base:18.2.0</package>
     <package>com.google.android.gms:play-services-basement:18.1.0</package>
+    <package>com.google.firebase:firebase-analytics:21.3.0</package>
+    <package>com.google.firebase:firebase-app-unity:11.6.0</package>
+    <package>com.google.firebase:firebase-auth:22.1.2</package>
+    <package>com.google.firebase:firebase-auth-unity:11.6.0</package>
+    <package>com.google.firebase:firebase-common:20.3.3</package>
+    <package>com.google.firebase:firebase-database:20.2.2</package>
+    <package>com.google.firebase:firebase-database-unity:11.6.0</package>
     <package>com.ironsource.adapters:unityadsadapter:4.3.34</package>
     <package>com.ironsource.sdk:mediationsdk:7.6.0</package>
     <package>com.unity3d.ads:unity-ads:4.9.2</package>
   </packages>
-  <files />
+  <files>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.6.0/firebase-app-unity-11.6.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.6.0/firebase-app-unity-11.6.0.pom</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-auth-unity/11.6.0/firebase-auth-unity-11.6.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-auth-unity/11.6.0/firebase-auth-unity-11.6.0.pom</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-database-unity/11.6.0/firebase-database-unity-11.6.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-database-unity/11.6.0/firebase-database-unity-11.6.0.pom</file>
+  </files>
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.UnityTechnologies.com.unity.template.urpblank" />
+    <setting name="bundleId" value="com.Liberto.AdventureofKnowledgeAndroid" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />
