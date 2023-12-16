@@ -56,10 +56,12 @@ namespace AdventureOfKnowledge
 
         public void ShowRewardAds()
         {
+#if !UNITY_EDITOR
             while (!IronSource.Agent.isRewardedVideoAvailable())
             {
                 OnRewardedAdsWaited?.Invoke(this, EventArgs.Empty);
             }
+#endif
             IronSource.Agent.showRewardedVideo();
          
         }

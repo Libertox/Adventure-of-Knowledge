@@ -33,18 +33,22 @@ namespace AdventureOfKnowledge.FortuneWheel
             FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
             AdsManager.Instance.OnRewardedAdsShow += AdsManager_OnRewardedAdsShow;
 
-            int year = SaveSystem.LoadSpinDataYear();
-            int month = SaveSystem.LoadSpinDataMonth();
-            int day = SaveSystem.LoadSpinDataDay();
-
-            bool canSpined = !CheckItTheCurrentDate(year, month, day);
-
-            OnCanSpined?.Invoke(this, new OnCanSpinedEventArgs
+            SaveManager.LoadSpinTime((callback) =>
             {
-                canSpined = canSpined
+                CurrentDate currentDate = new CurrentDate();
+                if (callback.Value != null)
+                {
+                    currentDate = JsonUtility.FromJson<CurrentDate>(callback.Value.ToString());
+                }
+
+                bool canSpined = !currentDate.CheckItTheCurrentDate();
+                OnCanSpined?.Invoke(this, new OnCanSpinedEventArgs
+                {
+                    canSpined = canSpined
+                });
+                gameObject.SetActive(!canSpined);
+
             });
-            gameObject.SetActive(!canSpined);
-  
         }
 
         private void AdsManager_OnRewardedAdsShow(object sender, EventArgs e)
@@ -77,7 +81,7 @@ namespace AdventureOfKnowledge.FortuneWheel
             OnSpinTimeChanged?.Invoke(this, onSpinTimeChangedEventArgs);
         }
 
-        private bool CheckItTheCurrentDate(int year, int month, int day) => year == System.DateTime.Now.Year && month == System.DateTime.Now.Month && day == System.DateTime.Now.Day;
+      
 
         private bool CheckSpinTimerElaspsed(int hour, int minute, int second) => hour == 0 && minute == 0 && second == 0;
 

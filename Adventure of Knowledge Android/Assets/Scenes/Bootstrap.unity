@@ -2079,7 +2079,7 @@ PrefabInstance:
     - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}
       propertyPath: fadeOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7888266469995864472, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}

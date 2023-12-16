@@ -22,32 +22,32 @@ namespace AdventureOfKnowledge.FortuneWheel
 
         private void Start() 
         {
-            playerDiamond = new PlayerDiamond(SaveSystem.LoadDiamondAmount());
+            playerDiamond = new PlayerDiamond();
             AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
         }
 
         private void AdsManager_OnRewarded(object sender, EventArgs e)
         {
             SaveRenewSpinTime();
-            SaveSystem.ResetSpinTime();
+            SaveManager.ResetSpinTime();
         }
 
         public void SetAward(int awardIndex)
         {
             awardAmount = GetFortuneWheelElementForIndex(awardIndex).AwardValue;
 
-            SaveSystem.SaveSpinDataYear(DateTime.Now.Year);
-            SaveSystem.SaveSpinDataMonth(DateTime.Now.Month);
-            SaveSystem.SaveSpinDataDay(DateTime.Now.Day);
+            CurrentDate currentDate = new CurrentDate(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+            SaveManager.SaveSpinTime(currentDate);
+
+     
 
             OnAwardWon?.Invoke(this,new OnAwardWonEventArgs { awardAmount = awardAmount });
         }
 
         public void SaveRenewSpinTime()
         {
-            SaveSystem.SaveRenewSpinDataYear(DateTime.Now.Year);
-            SaveSystem.SaveRenewSpinDataMonth(DateTime.Now.Month);
-            SaveSystem.SaveRenewSpinDataDay(DateTime.Now.Day);
+            CurrentDate currentDate = new CurrentDate(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+            SaveManager.SaveRenewSpinTime(currentDate);
         }
 
         public int GetNumberOfWheelElement() => fortuneWheelElements.Count;
@@ -57,7 +57,6 @@ namespace AdventureOfKnowledge.FortuneWheel
         public void AddAward() 
         {
             playerDiamond.AddDiamond(awardAmount);
-            SaveSystem.SaveDiamondAmount(playerDiamond.GetDiamondAmount());
         }
     }
 }

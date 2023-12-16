@@ -35,18 +35,21 @@ namespace AdventureOfKnowledge
 
         [SerializeField] private LayerMask interactLayerMask;
 
-        [SerializeField] private List<AvailableMonsterSkinElementSaveData> monsterSkinElementSaveDatas = new List<AvailableMonsterSkinElementSaveData>();
-       
+        [SerializeField] private AvailableMonsterSkinElementList availableMonsterSkinElementList;
+
         private void Awake() 
         {
             Instance = this;
 
             SelectedTypeOfBodyPart = TypeOfBodyPart.Body;
 
-            List<AvailableMonsterSkinElementSaveData> loadedAvailableSkinElemnt = SaveSystem.LoadAvailableSkinElement();
 
-            if (loadedAvailableSkinElemnt != null)
-                monsterSkinElementSaveDatas = loadedAvailableSkinElemnt;  
+            SaveManager.LoadAvailableSkinElement((callback) =>
+            {
+                if (callback.Value != null)
+                    JsonUtility.FromJsonOverwrite(callback.Value.ToString(), availableMonsterSkinElementList);
+     
+            });
         }
        
         private void Start()
@@ -107,7 +110,9 @@ namespace AdventureOfKnowledge
 
         public int GetSelectedMonsterSkinElementPrice() => GetMonsterSkinElementSO(SelectedTypeOfBodyPart).GetMonsterSkinElementPrice(SelectedSkinElement);
 
-        public List<AvailableMonsterSkinElementSaveData> GetAvaibleSkinElement() => monsterSkinElementSaveDatas;
+        public List<AvailableMonsterSkinElementSaveData> GetAvaibleSkinElement() => availableMonsterSkinElementList.monsterSkinElementSaveDatas;
+
+        public AvailableMonsterSkinElementList GetMonsterSkinElementList() => availableMonsterSkinElementList;
 
         public void SpawnMonsterBodyPart(Vector3 position, Vector3 size) 
         {
@@ -197,7 +202,7 @@ namespace AdventureOfKnowledge
                 bodyPartSaveDatas.Add(bodyPartSaveData);
             }
 
-            SaveSystem.SaveMonsterVisual(bodyPartSaveDatas);
+            SaveManager.SaveMonsterVisual(bodyPartSaveDatas);
         }
 
         public void SaveMonsterCreatorData()

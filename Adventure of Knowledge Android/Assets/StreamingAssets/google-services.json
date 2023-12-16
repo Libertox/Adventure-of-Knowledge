@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1009270602470",
+    "firebase_url": "https://adventure-of-knowledge-e1bef-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "adventure-of-knowledge-e1bef",
+    "storage_bucket": "adventure-of-knowledge-e1bef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009270602470:android:5e71813de94ae1428a9927",
+        "android_client_info": {
+          "package_name": "com.Liberto.AdventureofKnowledgeAndroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASnm3qi6UkR-leZ0jQonyc_dBtPSq3Xzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

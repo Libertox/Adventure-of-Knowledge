@@ -10,7 +10,7 @@ namespace AdventureOfKnowledge
         {
             MonsterCreatorManager.Instance.OnBodyChanged += MonsterCreatorManager_OnBodyChanged;
 
-            List<BodyPartSaveData> bodyPartSaveDatas = SaveSystem.LoadMonsterVisual();
+            List<BodyPartSaveData> bodyPartSaveDatas = SaveManager.LoadMonsterVisual();
 
             if (bodyPartSaveDatas == null) return;
 

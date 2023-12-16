@@ -23,11 +23,24 @@ namespace AdventureOfKnowledge
 
         private bool isPause;
 
+
         protected GameTimer gameTimer;
+        private int bestLevelTime;
+        private PlayerDiamond playerDiamond;
+
 
         public void SetDiffucltyLevel(DifficultyLevel difficultyLevel)
         {
             OnGameStarted?.Invoke(this, new OnGameStartedEventArgs {difficultyLevel = difficultyLevel});
+            SaveManager.LoadTheBestLevelScore(difficultyLevel, SceneLoader.GetActiveSceneName(), (callback) =>
+            {
+                if (callback.Value != null)
+                    bestLevelTime = int.Parse(callback.Value.ToString());
+                else
+                    bestLevelTime = int.MaxValue;
+            });
+
+            playerDiamond = new PlayerDiamond();
         }
 
         public void RestartGame() 
@@ -48,16 +61,15 @@ namespace AdventureOfKnowledge
         protected void InvokeFinishGameEvent(DifficultyLevelSettings difficultyLevelSettings) 
         {
             int gameScore = CalculateGameScore(difficultyLevelSettings);
-            int curremtDiamondAmount = SaveSystem.LoadDiamondAmount();
+
             OnGameFinished?.Invoke(this, new OnGameFinishedEventArgs { gameScore = gameScore });
 
             SoundManager.Instance.PlayCompleteGameSound();
 
-            curremtDiamondAmount += gameScore;
-            SaveSystem.SaveDiamondAmount(curremtDiamondAmount);
+            playerDiamond.AddDiamond(gameScore);
 
-            if (IsTheBestLevelTime((int)gameTimer.GameTime, difficultyLevelSettings.level))
-                SaveSystem.SaveTheBestLevelScore((int)gameTimer.GameTime, difficultyLevelSettings.level, SceneLoader.GetActiveSceneName());
+            if (IsTheBestLevelTime((int)gameTimer.GameTime))
+                SaveManager.SaveTheBestLevelScore((int)gameTimer.GameTime, difficultyLevelSettings.level, SceneLoader.GetActiveSceneName());
         }
 
 
@@ -81,7 +93,10 @@ namespace AdventureOfKnowledge
             else return gameScore;
         }
 
-        private bool IsTheBestLevelTime(int currentScore, DifficultyLevel difficultyLevel) => currentScore < SaveSystem.LoadTheBestLevelScore(difficultyLevel, SceneLoader.GetActiveSceneName());
+        private bool IsTheBestLevelTime(int currentScore) 
+        {
+           return currentScore < bestLevelTime;
+        } 
 
         public void SetPause(bool isPause) => this.isPause = isPause;
 

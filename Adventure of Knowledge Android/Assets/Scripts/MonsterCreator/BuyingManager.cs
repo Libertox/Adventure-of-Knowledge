@@ -15,7 +15,7 @@ namespace AdventureOfKnowledge
 
         public BuyingManager(MonsterCreatorManager monsterCreatorManager) 
         {
-            playerDiamond = new PlayerDiamond(SaveSystem.LoadDiamondAmount());
+            playerDiamond = new PlayerDiamond();
             this.monsterCreatorManager = monsterCreatorManager;
         }
         public bool CheckEnoughDiamond() => monsterCreatorManager.GetSelectedMonsterSkinElementPrice() < playerDiamond.GetDiamondAmount();
@@ -46,8 +46,7 @@ namespace AdventureOfKnowledge
 
         public void SaveMonsterCreatorData()
         {
-            SaveSystem.SaveDiamondAmount(playerDiamond.GetDiamondAmount());
-            SaveSystem.SaveAvailableSkinElement(monsterCreatorManager.GetAvaibleSkinElement());
+            SaveManager.SaveAvailableSkinElement(monsterCreatorManager.GetMonsterSkinElementList());
         }
 
     }

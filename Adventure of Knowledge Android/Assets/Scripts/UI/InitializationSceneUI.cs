@@ -13,19 +13,30 @@ namespace AdventureOfKnowledge.UI
         [SerializeField] private Button continueButton;
 
         [SerializeField] private FadeIamgeUI fadeIamgeUI;
+
         private void Awake()
         {
- 
-            if (SaveSystem.LoadPlayerName() != "")
+            SaveManager.InitializeDatabase();
+
+            SaveManager.LoadPlayerName((callback) =>
             {
-                SceneLoader.LoadScene(GameScene.MainMenu);
-                return;
-            }
-         
+                string playerName = "";
+
+                if(callback.Value != null)
+                    playerName = callback.Value.ToString();
+
+                if (playerName != "")
+                    SceneLoader.LoadScene(GameScene.MainMenu);
+                else
+                    fadeIamgeUI.FadeFromBlack(() => { fadeIamgeUI.Hide(); });
+            });
+        
+
             continueButton.onClick.AddListener(() =>
             {
                 SoundManager.Instance.PlayButtonSound();
-                SaveSystem.SavePlayerName(nameInputField.text);
+                SaveManager.SavePlayerName(nameInputField.text);
+               
                 fadeIamgeUI.FadeToBlack(() => SceneLoader.LoadScene(GameScene.MainMenu));
             });
 

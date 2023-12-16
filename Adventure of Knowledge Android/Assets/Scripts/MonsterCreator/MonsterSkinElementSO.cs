@@ -48,5 +48,11 @@ namespace AdventureOfKnowledge
         }
     }
 
+    [Serializable]
+    public struct AvailableMonsterSkinElementList
+    {
+        public List<AvailableMonsterSkinElementSaveData> monsterSkinElementSaveDatas;
+
+    }
 
 }

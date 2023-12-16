@@ -7,9 +7,24 @@ namespace AdventureOfKnowledge.FortuneWheel
 {
     public class RenewSpinButtonUI:MonoBehaviour
     {
- 
+
+        private CurrentDate currentRenewSpinDate;
+
         private void Awake()
         {
+            SaveManager.LoadRenewSpinTime((callback) =>
+            {
+                if(callback.Value != null)
+                {
+                    currentRenewSpinDate = JsonUtility.FromJson<CurrentDate>(callback.Value.ToString());         
+                }
+                else
+                {
+                    currentRenewSpinDate = new CurrentDate();
+                }
+
+            });
+
             Button renewButton = GetComponent<Button>();
             renewButton.onClick.AddListener(() =>
             {
@@ -19,16 +34,12 @@ namespace AdventureOfKnowledge.FortuneWheel
             });
 
             SpinTimer.OnCanSpined += SpinTimer_OnCanSpined;
+
         }
 
         private void SpinTimer_OnCanSpined(object sender, SpinTimer.OnCanSpinedEventArgs e)
         {
-            int year = SaveSystem.LoadRenewSpinDataYear();
-            int month = SaveSystem.LoadRenewSpinDataMonth();
-            int day = SaveSystem.LoadRenewSpinDataDay();
-
-
-            if(!CheckItTheCurrentDate(year, month, day))
+            if(!currentRenewSpinDate.CheckItTheCurrentDate())
                  gameObject.SetActive(!e.canSpined);
         }
 
@@ -37,11 +48,7 @@ namespace AdventureOfKnowledge.FortuneWheel
             
             AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
 
-            int year = SaveSystem.LoadRenewSpinDataYear();
-            int month = SaveSystem.LoadRenewSpinDataMonth();
-            int day = SaveSystem.LoadRenewSpinDataDay();
-
-            if(CheckItTheCurrentDate(year, month, day))
+            if(currentRenewSpinDate.CheckItTheCurrentDate())
             {
                 gameObject.SetActive(false);
                 return;
@@ -57,17 +64,11 @@ namespace AdventureOfKnowledge.FortuneWheel
 
         private void FortuneWheelManager_OnAwardWon(object sender, FortuneWheelManager.OnAwardWonEventArgs e)
         {
-
-            int year = SaveSystem.LoadRenewSpinDataYear();
-            int month = SaveSystem.LoadRenewSpinDataMonth();
-            int day = SaveSystem.LoadRenewSpinDataDay();
-
-            if(!CheckItTheCurrentDate(year, month, day))
+            if(!currentRenewSpinDate.CheckItTheCurrentDate())
                 gameObject.SetActive(true);
         }
 
-        private bool CheckItTheCurrentDate(int year, int month, int day) => year == System.DateTime.Now.Year && month == System.DateTime.Now.Month && day == System.DateTime.Now.Day;
-
+       
         private void OnDestroy()
         {
             SpinTimer.OnCanSpined -= SpinTimer_OnCanSpined;

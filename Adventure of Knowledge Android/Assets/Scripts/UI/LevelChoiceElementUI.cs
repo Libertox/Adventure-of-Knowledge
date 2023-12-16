@@ -22,25 +22,31 @@ namespace AdventureOfKnowledge.UI
         {
             Time.timeScale = 1f;
 
+            UpdateTheBestScoreText();
+
             loadLevelButton.onClick.AddListener(() => 
             { 
                 SoundManager.Instance.PlayButtonSound(); 
                 fadeIamgeUI.FadeToBlack(() => SceneLoader.LoadScene(gameSceneToLoad)); 
-            });
-
-            UpdateTheBestScoreText();
+            });     
         }
 
         private void UpdateTheBestScoreText()
         {
-            int easyBestTime = SaveSystem.LoadTheBestLevelScore(DifficultyLevel.Easy, gameSceneToLoad.ToString());
-            int mediumBestTime = SaveSystem.LoadTheBestLevelScore(DifficultyLevel.Medium, gameSceneToLoad.ToString());
-            int hardBestTime = SaveSystem.LoadTheBestLevelScore(DifficultyLevel.Hard, gameSceneToLoad.ToString());
+            SaveManager.LoadTheBestLevelScore(DifficultyLevel.Easy, gameSceneToLoad.ToString(),(callback) => 
+            {
+                easyScoreText.text = callback.Value == null ? "EASY " : "EASY " + callback.Value.ToString();
+            });
 
-            easyScoreText.text = easyBestTime == int.MaxValue?"EASY " : "EASY " + easyBestTime.ToString();
-            mediumScoreText.text = mediumBestTime == int.MaxValue? "MEDIUM ": "MEDIUM " + mediumBestTime.ToString();
-            hardScoreText.text = hardBestTime == int.MaxValue? "HARD " : "HARD " + hardBestTime.ToString();
+            SaveManager.LoadTheBestLevelScore(DifficultyLevel.Medium, gameSceneToLoad.ToString(), (callback) =>
+            {
+                mediumScoreText.text = callback.Value == null ? "MEDIUM " : "MEDIUM " + callback.Value.ToString();
+            });
 
+            SaveManager.LoadTheBestLevelScore(DifficultyLevel.Hard, gameSceneToLoad.ToString(), (callback) =>
+            {
+                hardScoreText.text = callback.Value == null ? "HARD " : "HARD " + callback.Value.ToString();
+            });
         }
 
     }

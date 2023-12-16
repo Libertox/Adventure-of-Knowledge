@@ -17,11 +17,9 @@ namespace AdventureOfKnowledge.UI
         {
             if (fadeOnAwake)
                 StartCoroutine(FadeFromBlackCorotuine(() => Hide()));
-            else
-                Hide();
         }
 
-        private void Hide() => gameObject.SetActive(false);
+        public void Hide() => gameObject.SetActive(false);
 
         private void Show() => gameObject.SetActive(true);
 
@@ -37,14 +35,12 @@ namespace AdventureOfKnowledge.UI
             StartCoroutine(FadeFromBlackCorotuine(funcAfterFade));
         }
 
-
         private IEnumerator FadeToBlackCorotuine(Action funcAfterFade)
         {
-            WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
             while (canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 1f, Time.deltaTime);
-                yield return waitForEndOfFrame;
+                yield return null;
             }
 
             MusicManager.Instance.SaveClipTime();
@@ -53,11 +49,10 @@ namespace AdventureOfKnowledge.UI
 
         private IEnumerator FadeFromBlackCorotuine(Action funcAfterFade)
         {
-            WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
             while (canvasGroup.alpha > 0)
             {
                 canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 0f, Time.deltaTime);
-                yield return waitForEndOfFrame;
+                yield return null;
             }
             funcAfterFade();
         }

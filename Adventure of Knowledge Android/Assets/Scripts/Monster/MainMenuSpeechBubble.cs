@@ -13,8 +13,11 @@ namespace AdventureOfKnowledge
 
         private void Start()
         {
-            string greetMessage = "HELLO \n" + SaveSystem.LoadPlayerName() + "!!!";
-            StartCoroutine(SlowlyWriteDialog(greetMessage));
+            SaveManager.LoadPlayerName((callback) =>
+            {
+                string greetMessage = "HELLO \n" + callback.Value.ToString() + " !!!";
+                StartCoroutine(SlowlyWriteDialog(greetMessage));
+            });     
         }
 
         private void Update()

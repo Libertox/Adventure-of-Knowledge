@@ -14,7 +14,7 @@ namespace AdventureOfKnowledge
 
         private void Start()
         {
-            List<BodyPartSaveData> bodyPartSaveDatas = SaveSystem.LoadMonsterVisual();
+            List<BodyPartSaveData> bodyPartSaveDatas = SaveManager.LoadMonsterVisual();
 
             if (bodyPartSaveDatas == null) return;
 

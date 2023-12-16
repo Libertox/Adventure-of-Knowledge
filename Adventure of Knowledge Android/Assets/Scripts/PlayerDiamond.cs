@@ -12,7 +12,14 @@ namespace AdventureOfKnowledge
 
         private int currentDiamond;
 
-        public PlayerDiamond(int diamondAmount) => AddDiamond(diamondAmount);
+        public PlayerDiamond() 
+        {
+            SaveManager.LoadDiamondAmount((callback) =>
+            {
+                int diamondAmount = callback.Value == null ? 0 : int.Parse(callback.Value.ToString());
+                AddDiamond(diamondAmount);
+            });
+        } 
        
         public void AddDiamond(int diamondToAdd)
         {
@@ -22,9 +29,10 @@ namespace AdventureOfKnowledge
             {
                 diamondAmount = currentDiamond,
             });
+
+            SaveManager.SaveDiamondAmount(currentDiamond);
         }
 
         public int GetDiamondAmount() => currentDiamond;
-
     }
 }
