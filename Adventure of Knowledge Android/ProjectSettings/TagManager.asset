@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interact
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1310281381
+    locked: 0
+  - name: SpeechBubble
+    uniqueID: 507431689
+    locked: 0
+  - name: PlayGround
+    uniqueID: 4087598427
+    locked: 0
+  - name: Ground
+    uniqueID: 2527841233
     locked: 0

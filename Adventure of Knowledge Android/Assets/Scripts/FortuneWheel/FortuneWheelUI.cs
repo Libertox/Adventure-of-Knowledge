@@ -39,6 +39,8 @@ namespace AdventureOfKnowledge.FortuneWheel
                     StartCoroutine(SpinCorotuine());
                 } 
             });
+
+            spinButton.gameObject.SetActive(false);
           
         }
 

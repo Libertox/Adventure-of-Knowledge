@@ -1831,6 +1831,7 @@ MonoBehaviour:
   nameInputField: {fileID: 1369415069}
   continueButton: {fileID: 1972204153}
   fadeIamgeUI: {fileID: 1215690156}
+  test: {fileID: 0}
 --- !u!1 &1865573179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fadeOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
+        type: 3}
+      propertyPath: fadeFromBlackSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7888266469995864472, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}

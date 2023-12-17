@@ -8,17 +8,24 @@ namespace AdventureOfKnowledge.UI
     public class FadeIamgeUI:MonoBehaviour
     {
         private CanvasGroup canvasGroup;
+
         [SerializeField] private bool fadeOnAwake;
+        [SerializeField] private float fadeFromBlackSpeed;
 
 
-        private void Awake() => canvasGroup = GetComponent<CanvasGroup>();
+        private void Awake() 
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+            SaveManager.OnLoadCompleted += SaveManager_OnLoadCompleted;
+        }
 
-        private void Start()
+        private void SaveManager_OnLoadCompleted()
         {
             if (fadeOnAwake)
                 StartCoroutine(FadeFromBlackCorotuine(() => Hide()));
         }
 
+     
         public void Hide() => gameObject.SetActive(false);
 
         private void Show() => gameObject.SetActive(true);
@@ -51,10 +58,15 @@ namespace AdventureOfKnowledge.UI
         {
             while (canvasGroup.alpha > 0)
             {
-                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 0f, Time.deltaTime);
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 0f, Time.deltaTime * fadeFromBlackSpeed);
                 yield return null;
             }
             funcAfterFade();
+        }
+
+        private void OnDestroy()
+        {
+            SaveManager.OnLoadCompleted -= SaveManager_OnLoadCompleted;
         }
 
     }

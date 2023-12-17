@@ -23,6 +23,11 @@ namespace AdventureOfKnowledge.FortuneWheel
                     currentRenewSpinDate = new CurrentDate();
                 }
 
+                if (currentRenewSpinDate.CheckItTheCurrentDate())
+                    gameObject.SetActive(false);
+                else
+                    gameObject.SetActive(true);
+
             });
 
             Button renewButton = GetComponent<Button>();
@@ -34,7 +39,6 @@ namespace AdventureOfKnowledge.FortuneWheel
             });
 
             SpinTimer.OnCanSpined += SpinTimer_OnCanSpined;
-
         }
 
         private void SpinTimer_OnCanSpined(object sender, SpinTimer.OnCanSpinedEventArgs e)
@@ -47,14 +51,8 @@ namespace AdventureOfKnowledge.FortuneWheel
         {
             
             AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
-
-            if(currentRenewSpinDate.CheckItTheCurrentDate())
-            {
-                gameObject.SetActive(false);
-                return;
-            }
             FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         private void AdsManager_OnRewarded(object sender, EventArgs e)

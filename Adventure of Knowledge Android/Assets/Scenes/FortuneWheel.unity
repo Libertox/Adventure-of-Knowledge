@@ -1259,6 +1259,11 @@ PrefabInstance:
       propertyPath: fadeOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
+        type: 3}
+      propertyPath: fadeFromBlackSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8528151597297919662, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}
       propertyPath: m_Pivot.x

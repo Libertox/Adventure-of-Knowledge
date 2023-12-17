@@ -15,13 +15,15 @@ namespace AdventureOfKnowledge.FortuneWheel
         private void Awake()
         {
             SpinTimer.OnSpinTimeChanged += SpinTimer_OnSpinTimeChanged;
-            SpinTimer.OnCanSpined += SpinTimer_OnCanSpined;
+            SpinTimer.OnCanSpined += SpinTimer_OnCanSpined;          
         }
 
         private void Start() 
         {
             FortuneWheelManager.Instance.OnAwardWon += FortuneWheelManager_OnAwardWon;
             AdsManager.Instance.OnRewardedAdsGet += AdsManager_OnRewarded;
+
+            gameObject.SetActive(false);
         }
 
         private void AdsManager_OnRewarded(object sender, System.EventArgs e)

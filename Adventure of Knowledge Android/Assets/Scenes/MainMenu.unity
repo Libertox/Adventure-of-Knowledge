@@ -235,11 +235,16 @@ PrefabInstance:
     - target: {fileID: 2267901289408973869, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}
       propertyPath: fadeOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
+        type: 3}
+      propertyPath: fadeFromBlackSpeed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8528151597297919662, guid: 544b32f4682c10a419bba66fdcd26c45,
@@ -1594,7 +1599,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1394578047
+  m_SortingLayerID: 507431689
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1132452974
@@ -2951,8 +2956,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1394578047
-  m_SortingLayer: 0
+  m_SortingLayerID: 507431689
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 751177437, guid: 427025d5b984fb94a9cdfe5407c6635f, type: 3}
   m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0}

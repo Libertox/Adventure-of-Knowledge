@@ -10,19 +10,40 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2760034152079624403, guid: 51867f739d7c2cb478c53530ad8918d4,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 3394502638681215896, guid: 51867f739d7c2cb478c53530ad8918d4,
+    - target: {fileID: 2760034152079624403, guid: 51867f739d7c2cb478c53530ad8918d4,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2760034152079624403, guid: 51867f739d7c2cb478c53530ad8918d4,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -207368869
+      objectReference: {fileID: 0}
     - target: {fileID: 3394502638681215896, guid: 51867f739d7c2cb478c53530ad8918d4,
         type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394502638681215896, guid: 51867f739d7c2cb478c53530ad8918d4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394502638681215896, guid: 51867f739d7c2cb478c53530ad8918d4,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -207368869
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394502638681215896, guid: 51867f739d7c2cb478c53530ad8918d4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a7d363d0dc3ec0d4d939916080045b8e, type: 2}
+      objectReference: {fileID: 21066439983934862, guid: e82d56d7528faaa41b64196f7a3ca98f,
+        type: 2}
     - target: {fileID: 4207603617661443870, guid: 51867f739d7c2cb478c53530ad8918d4,
         type: 3}
       propertyPath: m_fontAsset

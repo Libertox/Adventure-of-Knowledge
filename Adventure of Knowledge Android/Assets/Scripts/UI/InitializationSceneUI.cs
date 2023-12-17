@@ -29,8 +29,8 @@ namespace AdventureOfKnowledge.UI
                     SceneLoader.LoadScene(GameScene.MainMenu);
                 else
                     fadeIamgeUI.FadeFromBlack(() => { fadeIamgeUI.Hide(); });
+
             });
-        
 
             continueButton.onClick.AddListener(() =>
             {

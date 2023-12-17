@@ -974,17 +974,6 @@ MonoBehaviour:
   interactLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  monsterSkinElementSaveDatas:
-  - indexOnList: 0
-    typeOfBodyPart: 1
-  - indexOnList: 0
-    typeOfBodyPart: 2
-  - indexOnList: 0
-    typeOfBodyPart: 3
-  - indexOnList: 0
-    typeOfBodyPart: 5
-  - indexOnList: 0
-    typeOfBodyPart: 6
   availableMonsterSkinElementList:
     monsterSkinElementSaveDatas:
     - indexOnList: 0
@@ -1418,6 +1407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fadeOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270605203854661626, guid: 544b32f4682c10a419bba66fdcd26c45,
+        type: 3}
+      propertyPath: fadeFromBlackSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8528151597297919662, guid: 544b32f4682c10a419bba66fdcd26c45,
         type: 3}
