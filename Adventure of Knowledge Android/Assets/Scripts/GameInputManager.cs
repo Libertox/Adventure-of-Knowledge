@@ -9,7 +9,7 @@ namespace AdventureOfKnowledge
         public static GameInputManager Instance { get; private set; }
 
         public event EventHandler<OnScreenTouchedEventArgs> OnScreenTouched;
-        public event EventHandler OnScreenTouchedCanceled;
+        public event EventHandler<OnScreenTouchedEventArgs> OnScreenTouchedCanceled;
 
         public class OnScreenTouchedEventArgs : EventArgs { public Vector2 touchPosition; }
 
@@ -26,15 +26,15 @@ namespace AdventureOfKnowledge
             playerInput.Enable();
 
             playerInput.Player.TouchScreenPress.performed += TouchScreen_performed;
-            playerInput.Player.TouchScreenPress.canceled += TouchScreenPress_canceled;
-
-            playerInput.Player.MouseLeftButtonPress.performed += TouchScreen_performed;
-            playerInput.Player.MouseLeftButtonPress.canceled += TouchScreenPress_canceled;     
+            playerInput.Player.TouchScreenPress.canceled += TouchScreenPress_canceled;    
         }
 
         private void TouchScreenPress_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
-            OnScreenTouchedCanceled?.Invoke(this, EventArgs.Empty);
+            OnScreenTouchedCanceled?.Invoke(this, new OnScreenTouchedEventArgs
+            {
+                touchPosition = GetControllerPosition()
+            });
         }
 
         private void TouchScreen_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -45,25 +45,16 @@ namespace AdventureOfKnowledge
             });
         }
 
-        public Vector3 GetMousePosition() => playerInput.Player.MousePosition.ReadValue<Vector2>();
-        
-        public Vector3 GetTouchPosition() => playerInput.Player.TouchScreenPosition.ReadValue<Vector2>();
-      
+    
         public Vector2 GetControllerPosition() 
         {
-            if (GetMousePosition() != Vector3.zero) return GetMousePosition();
-            else if (GetTouchPosition() != Vector3.zero) return GetTouchPosition();
-            else return Vector2.zero;  
+            return playerInput.Player.TouchScreenPosition.ReadValue<Vector2>();
         } 
 
         private void OnDestroy()
         {
             playerInput.Player.TouchScreenPress.performed -= TouchScreen_performed;
             playerInput.Player.TouchScreenPress.canceled -= TouchScreenPress_canceled;
-
-
-            playerInput.Player.MouseLeftButtonPress.performed -= TouchScreen_performed;
-            playerInput.Player.MouseLeftButtonPress.canceled -= TouchScreenPress_canceled;
 
             playerInput.Dispose();
         }

@@ -11,7 +11,11 @@ namespace AdventureOfKnowledge.LetterGame
 
         private ObjectPool<LetterTile> letterTilePool;
 
-        private void Start() => GameTileVisual.OnDisappeared += GameTileVisual_OnDisappeared;
+        public override void Start() 
+        {
+            base.Start();
+            GameTileVisual.OnDisappeared += GameTileVisual_OnDisappeared;
+        } 
        
         private void GameTileVisual_OnDisappeared(object sender, EventArgs e)
         {

@@ -9,7 +9,11 @@ namespace AdventureOfKnowledge
     {    
         public int AnswerNumber { get; private set; }
 
-        private void Start() => SetStartPosition(transform.position);
+        public override void Start() 
+        {
+            base.Start();
+            SetStartPosition(transform.position);
+        } 
         
 
         public void SetAnswer(int answer)
