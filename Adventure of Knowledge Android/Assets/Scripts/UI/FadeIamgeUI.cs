@@ -21,7 +21,7 @@ namespace AdventureOfKnowledge.UI
 
         private void SaveManager_OnLoadCompleted()
         {
-            if (fadeOnAwake)
+            if (fadeOnAwake && IsActive())
                 StartCoroutine(FadeFromBlackCorotuine(() => Hide()));
         }
 
@@ -29,6 +29,8 @@ namespace AdventureOfKnowledge.UI
         public void Hide() => gameObject.SetActive(false);
 
         private void Show() => gameObject.SetActive(true);
+
+        private bool IsActive() => gameObject.activeInHierarchy;
 
         public void FadeToBlack(Action funcAfterFade)
         {

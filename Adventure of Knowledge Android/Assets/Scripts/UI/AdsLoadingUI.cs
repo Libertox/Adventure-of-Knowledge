@@ -14,16 +14,11 @@ namespace AdventureOfKnowledge.UI
             Hide();
         }
 
-        private void AdsManager_OnRewardedAdsShow(object sender, EventArgs e)
-        {
-            Hide();
-        }
+        private void AdsManager_OnRewardedAdsShow(object sender, EventArgs e) => Hide();
+     
 
-        private void AdsManager_OnRewardedAdsWaited(object sender, EventArgs e)
-        {
-            Show();
-        }
-
+        private void AdsManager_OnRewardedAdsWaited(object sender, EventArgs e) => Show();
+     
 
         private void Show() => gameObject.SetActive(true);
 

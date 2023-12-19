@@ -40,11 +40,8 @@ namespace AdventureOfKnowledge.UI
             UpdateRequiredDiamondAmountText();
         }
 
-        private void MonsterCreatorManager_OnBodyChanged(object sender, EventArgs e)
-        {
-            Hide();
-        }
-
+        private void MonsterCreatorManager_OnBodyChanged(object sender, EventArgs e) => Hide();
+       
         private void MonsterBodyPart_OnSelected(object sender, EventArgs e) => Hide();
 
        

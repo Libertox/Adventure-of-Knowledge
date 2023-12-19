@@ -22,12 +22,9 @@ namespace AdventureOfKnowledge.MemoryGame
         private int completePair;
         private DifficultyMemoryGameSettings difficultyMemoryGameSettings;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (!Instance)
-                Instance = this;
-
-            gameTimer = GetComponent<GameTimer>();
+            base.Awake();   
 
             OnGameStarted += MemoryGameManager_OnGameStarted;
         }

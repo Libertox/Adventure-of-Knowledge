@@ -21,13 +21,18 @@ namespace AdventureOfKnowledge
 
         public int NumberOfMoves { get; private set; }
 
+        private GameTimer gameTimer;
         private bool isPause;
-
-
-        protected GameTimer gameTimer;
         private int bestLevelTime;
         private PlayerDiamond playerDiamond;
 
+        protected virtual void Awake()
+        {
+            if (!Instance)
+                Instance = this;
+
+            gameTimer = GetComponent<GameTimer>();
+        }
 
         public void SetDiffucltyLevel(DifficultyLevel difficultyLevel)
         {
@@ -93,10 +98,8 @@ namespace AdventureOfKnowledge
             else return gameScore;
         }
 
-        private bool IsTheBestLevelTime(int currentScore) 
-        {
-           return currentScore < bestLevelTime;
-        } 
+        private bool IsTheBestLevelTime(int currentScore) => currentScore < bestLevelTime;
+        
 
         public void SetPause(bool isPause) => this.isPause = isPause;
 

@@ -20,12 +20,9 @@ namespace AdventureOfKnowledge.MathGame
         private int expressionResult;
         private int stage;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (!Instance)
-                Instance = this;
-
-            gameTimer = GetComponent<GameTimer>();
+            base.Awake();
 
             OnGameStarted += MemoryGameManager_OnGameStarted;
             OnCorrectAnswer += MathGameManager_OnCorrectAnswer;

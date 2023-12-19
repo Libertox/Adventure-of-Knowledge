@@ -13,29 +13,28 @@ namespace AdventureOfKnowledge
             Question,
         }
 
-        private readonly float movementSpeed = 16f;
-
         public Vector3 StartPosition { get; private set; }
         [field: SerializeField] public TextTileVisual GameTileVisual { get; private set; }
 
         [SerializeField] private TileType type;
 
-        private IDraggable.DragState dragState;
+        private DragState dragState;
         private Vector2 tileSize;
+        private readonly float movementSpeed = 16f;
 
         private void Awake()
         {
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
             tileSize = new Vector2(boxCollider2D.size.x, boxCollider2D.size.y);
 
-            dragState = IDraggable.DragState.None;
+            dragState = DragState.None;
         }
         public virtual void Start() => GameManager.Instance.OnNewStageLoaded += GameManager_OnNewStageLoaded;
 
         private void GameManager_OnNewStageLoaded(object sender, EventArgs e)
         {
             transform.position = StartPosition;
-            dragState = IDraggable.DragState.None;
+            dragState = DragState.None;
         }
 
         public bool IsResultTile() => type == TileType.Result;
@@ -50,7 +49,7 @@ namespace AdventureOfKnowledge
         {
             if (GameManager.Instance.IsPause()) return;
 
-            dragState = IDraggable.DragState.IsDrag;
+            dragState = DragState.IsDrag;
         }
 
         public void Drop()
@@ -62,25 +61,30 @@ namespace AdventureOfKnowledge
                 {
                     if (DetectResultTile(detectGameTile)) 
                     {
-                        dragState = IDraggable.DragState.None;
+                        dragState = DragState.None;
                         return;
                     } 
                 }
             }
 
-            dragState = IDraggable.DragState.IsDrop;
+            dragState = DragState.IsDrop;
         }
 
         private void Update()
         {
-            if (dragState == IDraggable.DragState.None) return;
+            if (dragState == DragState.None) return;
 
-            if (dragState == IDraggable.DragState.IsDrop)
+            if (dragState == DragState.IsDrop)
             {
                 transform.position = Vector3.MoveTowards(transform.position, StartPosition, Time.deltaTime * movementSpeed);
                 return;
             }
 
+            FollowTouchPosition();
+        }
+
+        private void FollowTouchPosition()
+        {
             float posZOffset = 1f;
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(GameInputManager.Instance.GetControllerPosition());
             touchPosition.z = transform.position.z;

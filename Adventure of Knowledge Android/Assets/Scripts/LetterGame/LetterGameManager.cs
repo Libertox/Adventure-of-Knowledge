@@ -22,12 +22,10 @@ namespace AdventureOfKnowledge.LetterGame
         private LetterFieldCreator letterFieldCreator;
 
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (!Instance)
-                Instance = this;
+            base.Awake();
 
-            gameTimer = GetComponent<GameTimer>();
             letterFieldCreator = GetComponent<LetterFieldCreator>();
             OnGameStarted += LetterGameManager_OnGameStarted;
             OnCorrectAnswer += LetterGameManager_OnCorrectAnswer;

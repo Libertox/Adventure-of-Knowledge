@@ -21,8 +21,8 @@ namespace AdventureOfKnowledge
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
 
-            Material material = new Material(spriteRenderer.material);
-            spriteRenderer.material = material;
+            Material material = new Material(spriteRenderer.sharedMaterial);
+            spriteRenderer.sharedMaterial = material;
         }
 
         private void Start()
@@ -54,7 +54,7 @@ namespace AdventureOfKnowledge
             while (dissoloveAmount < 1)
             {
                 dissoloveAmount += Time.deltaTime;
-                spriteRenderer.material.SetFloat(SHADER_DISSOLVE_AMOUNT_REF, dissoloveAmount);
+                spriteRenderer.sharedMaterial.SetFloat(SHADER_DISSOLVE_AMOUNT_REF, dissoloveAmount);
                 dignitText.color = new Color(dignitText.color.r, dignitText.color.g, dignitText.color.b, dissoloveAmount);
                 yield return null;
             } 
@@ -66,7 +66,7 @@ namespace AdventureOfKnowledge
             while (dissoloveAmount > 0)
             {
                 dissoloveAmount -= Time.deltaTime;
-                spriteRenderer.material.SetFloat(SHADER_DISSOLVE_AMOUNT_REF, dissoloveAmount);
+                spriteRenderer.sharedMaterial.SetFloat(SHADER_DISSOLVE_AMOUNT_REF, dissoloveAmount);
                 dignitText.color = new Color(dignitText.color.r, dignitText.color.g, dignitText.color.b, dissoloveAmount);
                 yield return null;
             }

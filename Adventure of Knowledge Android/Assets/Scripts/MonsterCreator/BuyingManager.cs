@@ -18,7 +18,7 @@ namespace AdventureOfKnowledge
             playerDiamond = new PlayerDiamond();
             this.monsterCreatorManager = monsterCreatorManager;
         }
-        public bool CheckEnoughDiamond() => monsterCreatorManager.GetSelectedMonsterSkinElementPrice() < playerDiamond.GetDiamondAmount();
+        public bool CheckEnoughDiamond() => monsterCreatorManager.GetSelectedMonsterSkinElementPrice() < playerDiamond.CurrentDiamond;
 
         public bool BuySkinElement()
         {

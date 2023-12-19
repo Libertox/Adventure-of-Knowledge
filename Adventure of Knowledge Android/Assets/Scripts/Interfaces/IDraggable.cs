@@ -7,13 +7,13 @@ namespace AdventureOfKnowledge
     public interface IDraggable
     {
         public void Drag();
-        public void Drop();
+        public void Drop();  
+    }
 
-        public enum DragState
-        {
-            None = 0,
-            IsDrag = 1,
-            IsDrop = 2,
-        }
+    public enum DragState
+    {
+        None = 0,
+        IsDrag = 1,
+        IsDrop = 2,
     }
 }

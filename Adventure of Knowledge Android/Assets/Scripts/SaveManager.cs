@@ -15,17 +15,15 @@ namespace AdventureOfKnowledge
 
         private const string SAVES_PATH = "/saves";
 
-        private const string SAVE_BODY_PARTS_KEY = "/BodyParts";
+        private const string BODY_PARTS_KEY = "/BodyParts";
+        private const string AVAILABLE_SKIN_ELEMENT_KEY = "/AvailableSkinElement";
+        private const string PLAYER_NAME_KEY = "PlayerName";
+        private const string BEST_SCORE_KEY = "BestScore";
+        private const string DIAMOND_AMOUNT_KEY = "DiamondAmount";
+        private const string SPIN_DATE_KEY = "SpinDate";
+        private const string RENEW_SPIN_DATE_KEY = "RenewSpinDate";
 
-        private const string SAVE_AVAILABLE_SKIN_ELEMENT_KEY = "/AvailableSkinElement";
-        private const string PLAYER_PREFS_NAME = "PlayerName";
-        private const string PLAYER_PREFS_BEST_SCORE = "BestScore";
-        private const string PLAYER_PREFS_DIAMOND_AMOUNT = "DiamondAmount";
-
-        private const string DATA_SPIN_DATE = "SpinDate";
-        private const string DATA_RENEW_SPIN_DATE = "RenewSpinDate";
-
-        private const string DATA_BASE_NAME = "Users";
+        private const string DATA_BASE_NODE_NAME = "Users";
 
         private static DatabaseReference databaseReference;
         private static string userId;
@@ -38,7 +36,7 @@ namespace AdventureOfKnowledge
 
         private static void SaveData<T>(T data, string dataName)
         {
-            databaseReference.Child(DATA_BASE_NAME).Child(userId).Child(dataName).SetValueAsync(data);
+            databaseReference.Child(DATA_BASE_NODE_NAME).Child(userId).Child(dataName).SetValueAsync(data);
         }
 
         private static void SaveJsonData<T>(T data, string dataName)
@@ -49,37 +47,37 @@ namespace AdventureOfKnowledge
 
         public static void SaveSpinTime(CurrentDate currentDate)
         {
-            SaveJsonData(currentDate, DATA_SPIN_DATE);
+            SaveJsonData(currentDate, SPIN_DATE_KEY);
         }
 
         public static void SaveRenewSpinTime(CurrentDate currentDate)
         {
-            SaveJsonData(currentDate, DATA_RENEW_SPIN_DATE);
+            SaveJsonData(currentDate, RENEW_SPIN_DATE_KEY);
         }
 
         public static void SavePlayerName(string playerName)
         {
-            SaveData(playerName, PLAYER_PREFS_NAME);
+            SaveData(playerName, PLAYER_NAME_KEY);
         }
 
         public static void SaveTheBestLevelScore(int gameScore, DifficultyLevel difficultyLevel, string gameScene)
         {
-            SaveData(gameScore, gameScene.ToString() + difficultyLevel.ToString() + PLAYER_PREFS_BEST_SCORE);
+            SaveData(gameScore, gameScene.ToString() + difficultyLevel.ToString() + BEST_SCORE_KEY);
         }
 
         public static void SaveDiamondAmount(int diamondAmount)
         {
-            SaveData(diamondAmount, PLAYER_PREFS_DIAMOND_AMOUNT);
+            SaveData(diamondAmount, DIAMOND_AMOUNT_KEY);
         }
 
         public static void SaveAvailableSkinElement(AvailableMonsterSkinElementList monsterSkinElementSaveDatas)
         {
-            SaveJsonData(monsterSkinElementSaveDatas, SAVE_AVAILABLE_SKIN_ELEMENT_KEY);
+            SaveJsonData(monsterSkinElementSaveDatas, AVAILABLE_SKIN_ELEMENT_KEY);
         }
 
         private static void LoadData(string dataName, Action<DataSnapshot> callback)
         {
-            databaseReference.Child(DATA_BASE_NAME).Child(userId).Child(dataName).GetValueAsync().ContinueWithOnMainThread(task =>
+            databaseReference.Child(DATA_BASE_NODE_NAME).Child(userId).Child(dataName).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompletedSuccessfully)
                 {
@@ -92,44 +90,44 @@ namespace AdventureOfKnowledge
 
         public static void LoadSpinTime(Action<DataSnapshot> callback)
         {
-            LoadData(DATA_SPIN_DATE, callback);
+            LoadData(SPIN_DATE_KEY, callback);
         }
 
         public static void LoadRenewSpinTime(Action<DataSnapshot> callback)
         {
-            LoadData(DATA_RENEW_SPIN_DATE, callback);
+            LoadData(RENEW_SPIN_DATE_KEY, callback);
         }
 
         public static void LoadPlayerName(Action<DataSnapshot> callback)
         {
-            LoadData(PLAYER_PREFS_NAME, callback);
+            LoadData(PLAYER_NAME_KEY, callback);
         }
 
         public static void LoadTheBestLevelScore(DifficultyLevel difficultyLevel, string gameScene, Action<DataSnapshot> callback) 
         {
-            LoadData(gameScene.ToString() + difficultyLevel.ToString() + PLAYER_PREFS_BEST_SCORE, callback);
+            LoadData(gameScene.ToString() + difficultyLevel.ToString() + BEST_SCORE_KEY, callback);
         } 
 
         public static void LoadDiamondAmount(Action<DataSnapshot> callback) 
         {
-            LoadData(PLAYER_PREFS_DIAMOND_AMOUNT, callback);
+            LoadData(DIAMOND_AMOUNT_KEY, callback);
         }
 
         public static void LoadAvailableSkinElement(Action<DataSnapshot> callback) 
         {
-            LoadData(SAVE_AVAILABLE_SKIN_ELEMENT_KEY, callback);
+            LoadData(AVAILABLE_SKIN_ELEMENT_KEY, callback);
         }
 
        
 
         public static void ResetSpinTime()
         {
-            databaseReference.Child(DATA_BASE_NAME).Child(userId).Child(DATA_SPIN_DATE).RemoveValueAsync();
+            databaseReference.Child(DATA_BASE_NODE_NAME).Child(userId).Child(SPIN_DATE_KEY).RemoveValueAsync();
         }
 
-        public static List<BodyPartSaveData> LoadMonsterVisual() => DeserializeData<List<BodyPartSaveData>>(SAVE_BODY_PARTS_KEY);
+        public static List<BodyPartSaveData> LoadMonsterVisual() => DeserializeData<List<BodyPartSaveData>>(BODY_PARTS_KEY);
 
-        public static void SaveMonsterVisual(List<BodyPartSaveData> bodyPartSaveDatas) => SerializeData(bodyPartSaveDatas, SAVE_BODY_PARTS_KEY);
+        public static void SaveMonsterVisual(List<BodyPartSaveData> bodyPartSaveDatas) => SerializeData(bodyPartSaveDatas, BODY_PARTS_KEY);
 
         private static void SerializeData<T>(T obj, string key)
         {

@@ -70,20 +70,19 @@ namespace AdventureOfKnowledge
                         draggable.Drag();
 
                 }
-
-                if (typeOfDetectObject.HasFlag(TypeOfDetectObject.Object3D))
-                {
-                    if (Physics.Raycast(ray, out RaycastHit raycastHit, maxDistance, interactLayerMask))
-                    {
-                        if (raycastHit.transform.TryGetComponent(out IInteractable interactable))
-                            interactable.Interact();
-                        if(raycastHit.transform.TryGetComponent(out IDraggable draggable))
-                            draggable.Drag();
-                    }
-                }
             }
 
-                    
+            if (typeOfDetectObject.HasFlag(TypeOfDetectObject.Object3D))
+            {
+                if (Physics.Raycast(ray, out RaycastHit raycastHit, maxDistance, interactLayerMask))
+                {
+                     if (raycastHit.transform.TryGetComponent(out IInteractable interactable))
+                         interactable.Interact();
+                     if(raycastHit.transform.TryGetComponent(out IDraggable draggable))
+                         draggable.Drag();
+                }
+            }
+                          
         }
     }
 }

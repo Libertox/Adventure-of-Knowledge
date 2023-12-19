@@ -10,7 +10,7 @@ namespace AdventureOfKnowledge
 
         public class OnDiamondChangedEventArgs : EventArgs { public int diamondAmount; }
 
-        private int currentDiamond;
+        public int CurrentDiamond { get; private set; }
 
         public PlayerDiamond() 
         {
@@ -23,16 +23,14 @@ namespace AdventureOfKnowledge
        
         public void AddDiamond(int diamondToAdd)
         {
-            currentDiamond += diamondToAdd;
+            CurrentDiamond += diamondToAdd;
 
             OnDiamondChanged?.Invoke(this, new OnDiamondChangedEventArgs
             {
-                diamondAmount = currentDiamond,
+                diamondAmount = CurrentDiamond,
             });
 
-            SaveManager.SaveDiamondAmount(currentDiamond);
+            SaveManager.SaveDiamondAmount(CurrentDiamond);
         }
-
-        public int GetDiamondAmount() => currentDiamond;
     }
 }

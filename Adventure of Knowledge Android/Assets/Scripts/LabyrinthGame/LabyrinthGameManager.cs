@@ -12,17 +12,14 @@ namespace AdventureOfKnowledge.LabyrinthGame
         private LabyrinthCreator labyrinthCreator;
         private DifficultyLabyrinthGameSettings difficultyLabyrinthGameSettings;
 
-        private void Awake()
-        {
-            if (!Instance)
-                Instance = this;
+       protected override void Awake()
+       {
+            base.Awake();
 
-            gameTimer = GetComponent<GameTimer>();
             labyrinthCreator = GetComponent<LabyrinthCreator>();
 
-            OnGameStarted += LabyrinthGameManager_OnGameStarted;
-           
-        }
+            OnGameStarted += LabyrinthGameManager_OnGameStarted;   
+       }
 
         private void LabyrinthGameManager_OnGameStarted(object sender, OnGameStartedEventArgs e)
         {

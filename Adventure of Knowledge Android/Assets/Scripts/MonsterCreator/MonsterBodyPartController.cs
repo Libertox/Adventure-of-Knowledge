@@ -10,7 +10,7 @@ namespace AdventureOfKnowledge
         private Vector3 pivotDistance;
         private MonsterBodyPart monsterBodyPart;
 
-        private IDraggable.DragState dragState;
+        private DragState dragState;
 
         private void Awake() => monsterBodyPart = GetComponent<MonsterBodyPart>();
 
@@ -18,7 +18,7 @@ namespace AdventureOfKnowledge
         public void Drag()
         {
             pivotDistance = Camera.main.ScreenToWorldPoint(GameInputManager.Instance.GetControllerPosition()) - transform.position;
-            dragState = IDraggable.DragState.IsDrag;
+            dragState = DragState.IsDrag;
         }
 
         public void Drop()
@@ -29,12 +29,12 @@ namespace AdventureOfKnowledge
             monsterBodyPart.transform.parent = parentTransform;
             pivotDistance = Vector3.zero;
 
-            dragState = IDraggable.DragState.IsDrop;
+            dragState = DragState.IsDrop;
         }
 
         private void Update()
         {
-            if (dragState != IDraggable.DragState.IsDrag) return;
+            if (dragState != DragState.IsDrag) return;
 
 
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(GameInputManager.Instance.GetControllerPosition()) - pivotDistance;
