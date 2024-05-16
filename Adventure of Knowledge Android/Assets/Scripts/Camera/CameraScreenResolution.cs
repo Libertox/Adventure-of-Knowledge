@@ -13,6 +13,11 @@ namespace AdventureOfKnowledge
 
         private void Start()
         {
+            AdjustCameraOrthographicSize();
+        }
+
+        private void AdjustCameraOrthographicSize()
+        {
             float targetAspect = TARGET_WIDTH / TARGET_HEIGHT;
 
             float currentAspect = (float)Screen.width / Screen.height;
@@ -23,6 +28,6 @@ namespace AdventureOfKnowledge
 
             if (Camera.main.orthographicSize < minOrthographicSize)
                 Camera.main.orthographicSize = minOrthographicSize;
-        } 
+        }
     }
 }
