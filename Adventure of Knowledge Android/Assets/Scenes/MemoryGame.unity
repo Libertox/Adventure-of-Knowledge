@@ -1500,7 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ae1c00e407bbc4bafd04c86d301abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minOrthographicSize: 0
+  minOrthographicSize: 12
 --- !u!1 &406787089
 GameObject:
   m_ObjectHideFlags: 0

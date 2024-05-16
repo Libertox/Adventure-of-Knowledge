@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOnAwake: 0
+  fadeFromBlackSpeed: 1
 --- !u!225 &2612881835056873886
 CanvasGroup:
   m_ObjectHideFlags: 0
